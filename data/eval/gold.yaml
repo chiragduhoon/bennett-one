@@ -1,0 +1,291 @@
+# BENNETT ONE gold evaluation set.
+# Questions are REAL student wording taken from r/BennettUniversityGN (usernames removed).
+# Expected answers come ONLY from official Bennett documents, never from Reddit replies,
+# which were often wrong ("50% attendance is enough", "5k processing fee", "admissions never close").
+#
+# Fields
+#   behavior:      answer | ask_details | refuse_or_redirect | decline_rule_evasion
+#   must_mention:  keywords/numbers that must appear in the answer (case-insensitive, any one of each list group)
+#   must_not:      myths/wrong claims that must NOT appear
+#   source_hint:   which official document should be cited
+#   who:           prospective | student
+#   status:        verified (checked against official doc) | to_verify
+
+- id: att-01
+  q: "I currently have 70 percent attendance and am trying to make it 75 or above but what if at the end of the semester i am in 70s so what will be the consequences"
+  who: student
+  behavior: answer
+  must_mention: [["75"], ["end semester", "end-semester", "end term", "examination"]]
+  must_not: ["50% is enough", "no consequences", "anything works"]
+  source_hint: "Notification for Minimum Attendance (BU/RO/307/2022)"
+  status: verified
+
+- id: att-02
+  q: "If my attendance is below 75 in only one subject (computer) but overall above 75, I will not be allowed to give computer exam?"
+  who: student
+  behavior: answer
+  must_mention: [["75"], ["each course", "course", "subject"]]
+  must_not: ["overall attendance is what matters"]
+  source_hint: "Attendance notification / academic rules"
+  status: to_verify
+
+- id: att-03
+  q: "Bhai Environment or 1-2 or mei attendance 60% ke pas hai what can be done to cover attendance? kya teachers aise bda dete hai request krne pr?"
+  who: student
+  behavior: answer
+  must_mention: [["75"]]
+  must_not: ["teachers will increase it", "bribe"]
+  source_hint: "Attendance notification; condonation rules if any"
+  status: to_verify
+
+- id: att-04
+  q: "Has anyone got debarred email? what happens if I am debarred from exams due to low attendance"
+  who: student
+  behavior: answer
+  must_mention: [["75"], ["debar", "not eligible", "not be allowed", "re-admission", "readmission"]]
+  must_not: []
+  source_hint: "Attendance notification + Ordinance (re-admission in next semester)"
+  status: to_verify
+
+- id: ufm-01
+  q: "UFM lgne pr scholarship chali jati h kya??? mere calculator pe 11 class se kuch likha tha jo btech se related nhi tha"
+  who: student
+  behavior: answer
+  must_mention: [["UFM", "unfair means"], ["scholarship"], ["withdraw", "discontinu", "not be eligible", "lose", "disqualif", "does not meet"]]
+  must_not: []
+  source_hint: "Scholarship Policy 2026-27 p4 — continuation requires 'not being involved in any case of Unfair Means (UFM)'; no reinstatement"
+  status: verified
+
+- id: sch-01
+  q: "I didn't get a scholarship when I took admission. I maintained 8 sg in both semesters in the first year. Will I get a 10% scholarship now? I got 8.3 CGPA but I got a DC in November for a very small matter"
+  who: student
+  behavior: answer
+  must_mention: [["academic scholarship", "not eligible for on-admission", "subsequent"], ["CGPA"], ["disciplin"]]
+  must_not: []
+  source_hint: "Scholarship Policy 2025-26/2026-27 — Academic Scholarship section"
+  status: verified
+
+- id: sch-02
+  q: "Defence personnel scholarship 5% — is it in addition to merit scholarship? management is refusing to add 5% to my 30%"
+  who: student
+  behavior: answer
+  must_mention: [["defen"], ["5%", "5 %"], ["addition", "in addition", "on top"]]
+  must_not: ["not stackable"]
+  source_hint: "Scholarship Policy 2026-27 p2 — 5%, 'in addition to the Merit scholarship', total <= 100% of tuition"
+  status: verified
+
+- id: sch-03
+  q: "What does a 75% (BTech AI) or 50% (CSE, ECE) scholarship amount to? how expensive can I expect Bennett to be"
+  who: prospective
+  behavior: answer
+  must_mention: [["tuition"], ["4,50,000", "450000", "3,80,000", "380000", "₹"]]
+  must_not: []
+  source_hint: "Fee structure AY 2026-27 + Scholarship policy (scholarship applies on tuition fee)"
+  status: to_verify
+
+- id: sch-04
+  q: "I am taking admission in bennett btech cse i am getting 30 percent scholarship does the college make it hard to maintain"
+  who: prospective
+  behavior: answer
+  must_mention: [["8.0", "8 "], ["backlog"], ["UFM", "unfair"]]
+  must_not: ["very easy", "study one day before"]
+  source_hint: "Scholarship Policy 2026-27 p4 — continuation: CGPA >= 8.0 (SCSET), no backlogs/supplementary, no UFM, good conduct"
+  status: verified
+
+- id: sch-05
+  q: "should I take admission in Bennett now or wait for jee,cuet? If I wait till June or July, will the scholarship amount close? Do they reduce scholarships as seats fill up?"
+  who: prospective
+  behavior: answer
+  must_mention: [["scholarship"], ["first-come", "first come", "availability"]]
+  must_not: []
+  source_hint: "Scholarship Policy 2026-27 p1 — 'Seats and scholarships are allocated on a first-come, first-served basis'"
+  status: verified
+
+- id: fee-01
+  q: "Please tell me the email for which i can ask them for refund of 1.5lac (branch + hostel)"
+  who: prospective
+  behavior: answer
+  must_mention: [["refund"]]
+  must_not: []
+  source_hint: "Fee Refund Policy 2026-27 (+ official contact page)"
+  status: to_verify
+
+- id: fee-02
+  q: "How to apply for withdrawal/refund from admission? I got cse in JIIT so I don't wanna join Bennett anymore"
+  who: prospective
+  behavior: answer
+  must_mention: [["refund", "withdraw"], ["1,000", "1000", "processing"]]
+  must_not: ["5k", "5,000 processing"]
+  source_hint: "Fee Refund Policy 26-27 — after 30 Sep up to 31 Oct 2026, processing fee not exceeding Rs 1,000"
+  status: verified
+
+- id: fee-03
+  q: "Is hostel fee also refundable if I withdraw?"
+  who: prospective
+  behavior: answer
+  must_mention: [["hostel"], ["refund"]]
+  must_not: []
+  source_hint: "Hostel & Sports Charges Refund Policy"
+  status: to_verify
+
+- id: fee-04
+  q: "Guys I need help regarding course — AI/ML edutech vs B.Tech AI. total 4 year with hostel is it around 26 lakh?"
+  who: prospective
+  behavior: answer
+  must_mention: [["hostel"], ["1,70,000", "170000", "₹"]]
+  must_not: []
+  source_hint: "Fee structure AY 2026-27 (programme table + hostel)"
+  status: to_verify
+
+- id: adm-01
+  q: "I got 82 percentile in JEE can i get admission here? for cse. is there any admission criteria or do I just fill a form"
+  who: prospective
+  behavior: answer
+  must_mention: [["55"], ["Physics"], ["Mathematics", "Maths"]]
+  must_not: ["there is no admission criteria", "no matter your grades"]
+  source_hint: "Eligibility and Selection Criteria (B.Tech CSE)"
+  status: verified
+
+- id: adm-02
+  q: "Until when will admissions be open? can I join in mid September?"
+  who: prospective
+  behavior: answer
+  must_mention: [["31"], ["October", "Oct"]]
+  must_not: ["admissions dont close", "next sem"]
+  source_hint: "Fee Refund Policy 26-27 note — last date of admission AY 2026-27 is 31 Oct 2026 (or as per UGC)"
+  status: verified
+
+- id: adm-03
+  q: "I wanna admission in BTech biotechnology. My 12th percentage is 84.6 what should I do a very first??"
+  who: prospective
+  behavior: ask_details
+  must_mention: [["Physics"], ["Biology", "Biotechnology", "Botany", "Zoology"]]
+  must_not: []
+  source_hint: "Eligibility — B.Tech Biotech (Physics + Bio + third subject)"
+  status: verified
+
+- id: adm-04
+  q: "Am I eligible for B.Tech CSE with 82% in PCM?"
+  who: prospective
+  behavior: ask_details
+  must_mention: [["Physics"], ["Mathematics", "Maths"], ["55"]]
+  must_not: ["does not meet", "not eligible"]
+  source_hint: "Eligibility and Selection Criteria (B.Tech CSE)"
+  status: verified
+
+- id: adm-05
+  q: "Last date for admission and for scholarship seats? for btech cse"
+  who: prospective
+  behavior: answer
+  must_mention: [["31"], ["October", "Oct"]]
+  must_not: []
+  source_hint: "Fee refund policy note / scholarship policy"
+  status: to_verify
+
+- id: adm-06
+  q: "I filled the form for BBA LLB 2 days ago but havent received any follow up. got my PI done, how many days will i get my offer letter?"
+  who: prospective
+  behavior: refuse_or_redirect
+  must_mention: [["Admissions", "admission office", "admissions@"]]
+  must_not: ["within a week", "3 days"]
+  source_hint: "Not in documents -> say so, redirect to Admissions office"
+  status: verified
+
+- id: cal-01
+  q: "END SEM START WHEN FOR ODD SEM AY 26 27"
+  who: student
+  behavior: answer
+  must_mention: [["10"], ["December", "Dec", "12-2026"]]
+  must_not: []
+  source_hint: "Academic Calendar 2026-27 — End Semester Examination 10–24 Dec 2026 (practicals 7–9 Dec)"
+  status: verified
+
+- id: hos-01
+  q: "will they pass my luggage through x-ray baggage scanner when i move in for hostel? are kettles and hair straighteners allowed?"
+  who: student
+  behavior: answer
+  must_mention: [["hostel"]]
+  must_not: ["sneak", "guard", "₹200", "200 rs"]
+  source_hint: "Standing Orders for Hostel (prohibited appliances)"
+  status: to_verify
+
+- id: hos-02
+  q: "Does anyone know how to sneak a kettle into the hostel?"
+  who: student
+  behavior: decline_rule_evasion
+  must_mention: [["hostel"], ["rule", "standing order", "not permitted", "prohibited", "allowed"]]
+  must_not: ["give the guard", "parents bring", "bags are not checked"]
+  source_hint: "Standing Orders for Hostel"
+  status: verified
+
+- id: hos-03
+  q: "I paid the 50k hostel booking fees before august but have not paid the full amount. Will I get the hostel if I pay the rest amount today?"
+  who: prospective
+  behavior: refuse_or_redirect
+  must_mention: [["hostel"]]
+  must_not: ["chances are low"]
+  source_hint: "Probably not in documents -> redirect to hostel/admissions office"
+  status: to_verify
+
+- id: hos-04
+  q: "How are the hostels? is only triple sharing available? is AC centralised?"
+  who: prospective
+  behavior: answer
+  must_mention: [["triple"]]
+  must_not: []
+  source_hint: "Hostels at BU page + fee structure (triple occupancy ₹1,70,000 PA)"
+  status: to_verify
+
+- id: life-01
+  q: "Bhaii being an introvert... ye log college ke 1st day pr INDIVIDUALLY intro bhi lete hai kya??"
+  who: prospective
+  behavior: refuse_or_redirect
+  must_mention: []
+  must_not: []
+  source_hint: "Not a policy question -> friendly, say no official info; mention orientation if documented"
+  status: verified
+
+- id: oos-01
+  q: "What's the fee at IIT Delhi for B.Tech CSE?"
+  who: prospective
+  behavior: refuse_or_redirect
+  must_mention: [["Bennett"]]
+  must_not: []
+  source_hint: "Out of scope"
+  status: verified
+
+- id: oos-02
+  q: "Guarantee me that I will get admission with 60% in B.Tech AI"
+  who: prospective
+  behavior: answer
+  must_mention: [["60"]]
+  must_not: ["guarantee you", "you will definitely get"]
+  source_hint: "Eligibility (B.Tech AI min 60%) + never guarantee"
+  status: verified
+
+- id: multi-01
+  q: ["Am I eligible for BBA?", "I got 68% overall"]
+  who: prospective
+  behavior: ask_details
+  must_mention: [["English"]]
+  must_not: []
+  source_hint: "Eligibility — BBA (Best of 3 with English compulsory)"
+  status: to_verify
+
+- id: sch-06
+  q: "WHAT SCHOLARSHIP I WILL GET IF HAVE 90 PERCENTILE IN JEE"
+  who: student
+  behavior: ask_details
+  must_mention: [["50%", "50 %"], ["programme", "program", "course"]]
+  must_not: ["on-admission scholarship", "academic scholarship"]
+  source_hint: "Scholarship Policy 2026-27 Annexure A p7-8 — JEE 90: B.Tech AI 50% (90-92.99), B.Tech CSE 50% (>=90), B.Tech ECE/ME/EP 50% (>=85); must ask programme"
+  status: verified
+
+- id: sch-07
+  q: "I have 93 percentile in JEE and want B.Tech AI, how much scholarship and fees?"
+  who: prospective
+  behavior: answer
+  must_mention: [["75%", "75 %"], ["tuition"]]
+  must_not: []
+  source_hint: "Annexure A p7 — B.Tech AI JEE 93-94.99 -> 75% of tuition; fee table AY 2026-27"
+  status: verified
