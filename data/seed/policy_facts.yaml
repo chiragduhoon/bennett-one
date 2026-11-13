@@ -1,0 +1,116 @@
+# Curated, CITED policy facts used by the deterministic rule engine.
+# Every number here must point to an official document + page. The LLM never invents these.
+# When a newer/higher-authority source changes a fact, add it and mark the old one `superseded_by`.
+
+min_attendance_end_sem:
+  - id: att-univ-2022
+    value_pct: 75
+    scope: university            # applies to every school
+    effective_from: AY 2022-23 (odd semester onwards)
+    source:
+      title: "Notification for Minimum Attendance for Students (Ref BU/RO/Notification/307/2022, 08 Sep 2022)"
+      url: https://www.bennett.edu.in/wp-content/uploads/2022/09/Notification-for-Minimum-Attendance-for-Students.pdf
+      page: 1
+      quote: "students should have a minimum attendance of 75% to become eligible for appearing in the End Semester Examination with effect from the current semester onwards i.e. AY 2022-23 (odd semester onwards)"
+    authority: "Academic Council (13th meeting, 29 Jul 2022), notified by the Registrar"
+  - id: att-scset-ug-2022-03
+    value_pct: 70
+    scope: SCSET
+    effective_from: published Mar 2022
+    superseded_by: att-univ-2022
+    source:
+      title: "Academic Rules for SCSET (UG)"
+      url: https://www.bennett.edu.in/wp-content/uploads/2022/03/Academic-Rules-for-SCSET_UG.pdf
+      quote: "A student must have a minimum attendance of 70% in a course during a semester"
+    note: "Older school-level rule; the later university-wide notification (Sep 2022) sets 75% for all schools."
+
+# ---------------------------------------------------------------- scholarships (Scholarship Policy AY 2026-27)
+scholarship_policy:
+  source:
+    title: "Scholarship Policy — Academic Year 2026-27"
+    url: https://d2xwywryb7yxbo.cloudfront.net/s3bucket-images/Scholarship-Policy-26-27_compressed.pdf
+  allocation:
+    page: 1
+    quote: "Seats and scholarships are allocated on a first-come, first-served basis and are subject to availability at the time of fee payment"
+  multiple:
+    page: 1
+    quote: "In cases where a student qualifies for multiple scholarships, the scholarship with the highest monetary value, as per university guidelines, will be awarded"
+  continuation:          # keeping an on-admission scholarship from 2nd year onwards
+    page: 4
+    min_cgpa: {SoAI: 8.5, default: 8.0}
+    requires: ["minimum CGPA for the school", "no backlogs or supplementary examinations", "no Unfair Means (UFM) case", "good disciplinary conduct", "minimum credits earned"]
+    no_reinstatement: true
+    quote: "subject to the student achieving the minimum CGPA requirement applicable to the respective school/program ... having no backlogs or supplementary examinations, not being involved in any case of Unfair Means (UFM), and maintaining good disciplinary conduct"
+  academic:              # for students who did NOT get an on-admission scholarship
+    page: 5
+    amount_pct_of_tuition: 10
+    min_cgpa: {SoAI: 8.5, default: 8.0}
+    top_percent_of_programme: 10
+    requires: ["no adverse disciplinary issue", "no UFM", "no backlogs or supplementary", "minimum credits earned", "not already holding an admission/government/private scholarship"]
+    review: "every year, at the end of the academic year"
+    apply_by: "31 October of each academic year (application to the Registrar)"
+    quote: "A student securing a CGPA of 8.5 and above in programmes offered under the School of Artificial Intelligence, and 8.0 and above in programmes offered under other Schools ... shall be eligible to receive an Academic Scholarship equivalent to 10% of the Tuition Fee ... provided that the student is among the top 10% performers in the respective programme"
+  other:
+    - {name: "Ward of Defence Personnel", pct: 5, stackable: true, cap: "total scholarship must not exceed 100% of tuition", page: 2}
+    - {name: "Single Girl Child", pct: 10, page: 2}
+    - {name: "Sibling", pct: 10, note: "for the overlap of siblings' study; same parents, not cousins", page: 3}
+    - {name: "Alumni (PG programmes)", pct: 10, page: 3}
+    - {name: "Times Group employees (B Group) & families", amount: "₹1,00,000 fee rebate (₹50,000/semester), first year only", page: 4}
+
+# ---------------------------------------------------------------- refunds (Fee Refund Policy AY 2026-27, based on UGC notification of 12 Jun 2024)
+refund_policy:
+  source:
+    title: "Bennett University Fee Refund Policy — Academic Year 2026-27"
+    url: https://d2xwywryb7yxbo.cloudfront.net/s3bucket-images/Fee-Refund-Policy-26-27.pdf
+  tuition:
+    page: 1
+    full_refund_until: "2026-09-30"
+    processing_fee_until: "2026-10-31"
+    max_processing_fee_inr: 1000
+    last_date_of_admission: "2026-10-31"
+    quote: "Withdrawal/Cancellation of admission requests received on or before 30 September 2026 shall be eligible for full refund of fees. For Withdrawal/Cancellation requests received after 30 September 2026 and up to 31 October 2026, the refund shall be processed after deduction of a processing fee, which shall not exceed Rs. 1,000."
+  how_to_apply:
+    page: 1
+    steps: ["Fill the refund application form (prescribed format, on the website)",
+            "Email it to the Dean of your school, Marketing & Admissions, the Finance Department and the Registrar",
+            "Complete the no-dues process (needed for the security deposit)"]
+    processing_time: "within 15 working days of receipt of the complete application and completion of no-dues"
+  no_refund:
+    page: 2
+    cases: ["admission cancelled for disciplinary action, ragging, substance abuse or code-of-conduct breach (only security deposit refunded)",
+            "ineligibility or failure to submit original documents (only security deposit refunded)",
+            "discrepancy between application and original documents (fees forfeited except security deposit)",
+            "forged documents / misrepresentation (fees forfeited, legal action possible)"]
+  scholarship_students:
+    page: 2
+    quote: "If a student who is offered BU scholarship decides to withdraw, he/she will be treated as a non-scholarship student"
+  hostel:
+    page: 2
+    slabs:   # days counted from commencement of session or hostel occupancy, whichever is earlier
+      - {until_day: 0, refund_pct: 100, label: "on or before the session start / hostel occupancy date"}
+      - {until_day: 7, refund_pct: 50, label: "till the 7th day"}
+      - {until_day: 10, refund_pct: 25, label: "8th–10th day"}
+      - {until_day: 99999, refund_pct: 0, label: "from the 11th day"}
+
+# ---------------------------------------------------------------- hostel rules (Standing Orders for Hostel)
+hostel_rules:
+  source:
+    title: "Standing Orders for Hostel"
+    url: https://www.bennett.edu.in/wp-content/uploads/2024/05/Standing-Orders-for-Hostel.pdf
+  rules:
+    - {page: 1, topic: "electrical appliances", applies_to: ["kettle", "electric kettle", "iron", "heater", "induction", "TV", "cooking appliances"],
+       quote: "9. Electrical appliances like electrical irons, heaters, VCD/DVD player, T.V., V.C.P. and V.C.R. etc., are not permitted in hostel rooms."}
+    - {page: 1, topic: "weapons", quote: "Students are not permitted to keep fire-arms or any lethal weapon with them in the Hostel"}
+    - {page: 2, topic: "visitors", quote: "Visitors including parents are not allowed to go inside the hostel rooms"}
+    - {page: 2, topic: "electric connections", quote: "Hostel inmates fiddling with the electric connections, computer cabling, outlets, fittings ... (prohibited)"}
+    - {page: 3, topic: "ragging", quote: "Ragging in any form is unlawful and strictly prohibited"}
+  note: "Items not listed by name are judged by the category they belong to; the Warden / Hostel In-charge has the final say."
+
+admission_deadline:
+  source:
+    title: "Bennett University Fee Refund Policy — Academic Year 2026-27 (Note a)"
+    url: https://d2xwywryb7yxbo.cloudfront.net/s3bucket-images/Fee-Refund-Policy-26-27.pdf
+    page: 1
+  last_date_of_admission: "2026-10-31"
+  quote: "The last date of admission for the AY 2026-27 shall be 31st October 2026 or as per UGC notification. The University reserves its rights to change / alter the above-mentioned last date of admission for the AY 2026-27."
+  scholarship_note: "Seats and scholarships are allocated on a first-come, first-served basis and are subject to availability at the time of fee payment (Scholarship Policy 2026-27, p1)."

@@ -1,0 +1,30 @@
+# Safety / urgent-help contacts. Shown instantly (no search, no LLM) when a message is about
+# ragging, harassment, threats, self-harm or an emergency. Keep this file small, verified and dated.
+#
+# Bennett contacts: Office Order Ref BU/RO/Anti Rag/24/2026 dated 17.04.2026,
+# "Re-constitution of Anti-Ragging Monitoring Cell" (OCR'd; email spacing corrected by hand).
+source:
+  title: "Office Order — Re-constitution of Anti-Ragging Monitoring Cell (BU/RO/Anti Rag/24/2026, 17 Apr 2026)"
+  url: https://d2xwywryb7yxbo.cloudfront.net/s3bucket-images/Anti-Ragging-Cell-Notification-17.04.26.pdf
+
+university:
+  - {role: "Chief Proctor (Anti-Ragging Cell member)", name: "Prof. (Dr) Ajay Kumar Singh", phone: "8777758515", email: "ajay.Kumar1@bennett.edu.in"}
+  - {role: "Registrar (Secretary, Anti-Ragging Cell)", name: "Prof. (Dr) Ajay Kumar Yadav", phone: "7990138020", email: "registrar@bennett.edu.in"}
+  - {role: "Chairman, Anti-Ragging Cell (COO)", name: "Mr. Senthil Kumar", email: "senthil.kumar@bennett.edu.in"}
+  - {role: "VP Administration (Anti-Ragging Cell member)", name: "Mr. Anup Singh Suryavanshi", phone: "6281735828", email: "anup.suryavanshi@bennett.edu.in"}
+
+school_deans:  # each Dean is a member of the Anti-Ragging Cell
+  SoAI: {name: "Prof. (Dr) Rajeev Tiwari", role: "Dean, School of AI", phone: "9557638715", email: "rajeev.tiwari@bennett.edu.in"}
+  SCSET: {name: "Prof. (Dr) Abhay Bansal", role: "Dean, SCSET & School of Global Pathways", phone: "9810600460", email: "abhay.bansal@bennett.edu.in"}
+  SGP: {name: "Prof. (Dr) Abhay Bansal", role: "Dean, SCSET & School of Global Pathways", phone: "9810600460", email: "abhay.bansal@bennett.edu.in"}
+  SOL: {name: "Prof. (Dr) Pradeep Kumar Kulshrestha", role: "Dean, School of Law", phone: "9718882529", email: "pradeep.kulshrestha@bennett.edu.in"}
+  TSOM: {name: "Prof. (Dr) Sumit Narula", role: "Dean, Times School of Media", phone: "9560452625", email: "sumit.narula@bennett.edu.in"}
+  SOD: {name: "Prof. (Dr) Manisha Mohan", role: "Dean, School of Design", phone: "9820239022", email: "manisha.mohan@bennett.edu.in"}
+  SEAS: {name: "Prof. (Dr) N Latha", role: "Dean, SEAS", phone: "9891900122", email: "N.Latha@bennett.edu.in"}
+  SLA: {name: "Prof. (Dr) Sanjeev Kumar", role: "Dean, School of Liberal Arts", phone: "9811331432", email: "sanjeev.kumar@bennett.edu.in"}
+  SOM: {name: "Prof. (Dr) Niraj Mankad", role: "Dean, School of Management", phone: "9765390639", email: "niraj.mankad@bennett.edu.in"}
+
+national:
+  - {name: "National Anti-Ragging Helpline (UGC, 24×7, toll-free)", phone: "1800-180-5522", email: "helpline@antiragging.in", web: "https://www.antiragging.in"}
+  - {name: "Emergency (Police / Ambulance)", phone: "112"}
+  - {name: "Tele-MANAS mental-health helpline (Govt. of India, 24×7, free)", phone: "14416"}

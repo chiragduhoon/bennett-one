@@ -1,0 +1,130 @@
+# Admission (merit) scholarship bands — Scholarship Policy AY 2026-27, Annexure A, pp. 7-9.
+# Transcribed from the OCR of the official PDF and checked by hand (OCR artefacts fixed: "66=<" = ">=99",
+# "56=<" = ">=95", "XI1%" = "XII%"). Ranges are inclusive. For ranks, LOWER is better (min/max are rank numbers).
+# Scholarship % applies to the TUITION FEE only.
+source:
+  title: "Scholarship Policy AY 2026-27 — Annexure A: Admission Scholarship Bands"
+  url: https://d2xwywryb7yxbo.cloudfront.net/s3bucket-images/Scholarship-Policy-26-27_compressed.pdf
+terms:
+  - "Scholarships under the Competitive Exam category apply only to students who passed out in December 2025/2026."
+  - "Scholarships based on Class XII marks apply to students who passed out in 2025 and 2026."
+  - "XII% is the Best of 3 subjects (same basis as the eligibility criteria)."
+  - "Scores must be without any back / improvement / supplementary papers and UFM."
+  - "Seats and scholarships are allocated first-come, first-served, subject to availability at the time of fee payment."
+
+groups:
+  - name: "B.Tech (Artificial Intelligence)"
+    page: 7
+    match: ["b.tech (artificial intelligence)", "b.tech artificial intelligence", "b tech ai", "btech ai"]
+    bands:
+      xii:  [[81, 85.99, 10], [86, 90.99, 20], [91, 94.99, 30], [95, 96.99, 50], [97, 98.99, 75], [99, 100, 100]]
+      jee:  [[65, 69.99, 10], [70, 74.99, 20], [75, 89.99, 30], [90, 92.99, 50], [93, 94.99, 75], [95, 100, 100]]
+      sat:  [[1201, 1300, 10], [1301, 1350, 20], [1351, 1450, 30], [1451, 1500, 50], [1501, 1550, 75], [1551, 1600, 100]]
+      ib:   [[31, 33, 10], [34, 36, 20], [37, 39, 30], [40, 40, 50], [41, 41, 75], [42, 45, 100]]
+  - name: "B.Tech CSE / B.Tech + M.Tech CSE (Dual Degree)"
+    page: 8
+    match: ["b.tech (computer science engineering)", "b.tech cse", "computer science", "b.tech + m.tech (computer science"]
+    bands:
+      xii:  [[81, 85.99, 10], [86, 90.99, 20], [91, 94.99, 30], [95, 100, 50]]
+      jee:  [[65, 69.99, 10], [70, 74.99, 20], [75, 89.99, 30], [90, 100, 50]]
+      sat:  [[1201, 1300, 10], [1301, 1350, 20], [1351, 1450, 30], [1451, 1600, 50]]
+      ib:   [[31, 33, 10], [34, 36, 20], [37, 39, 30], [40, 45, 50]]
+  - name: "B.Tech EC / ECE / ME / EP"
+    page: 8
+    match: ["electronics", "mechanical", "engineering physics", "ece", "b.tech ec"]
+    bands:
+      xii:  [[75, 79.99, 10], [80, 84.99, 20], [85, 94.99, 30], [95, 100, 50]]
+      jee:  [[65, 69.99, 10], [70, 74.99, 20], [75, 84.99, 30], [85, 100, 50]]
+      sat:  [[1201, 1300, 10], [1301, 1350, 20], [1351, 1450, 30], [1451, 1600, 50]]
+      ib:   [[31, 33, 10], [34, 36, 20], [37, 39, 30], [40, 45, 50]]
+  - name: "B.Tech Biotech / B.Tech + M.Tech Biotech"
+    page: 8
+    match: ["biotech"]
+    bands:
+      xii:  [[75, 79.99, 10], [80, 84.99, 20], [85, 94.99, 30], [95, 100, 50]]
+      neet: [[65, 69.99, 10], [70, 74.99, 20], [75, 84.99, 30], [85, 100, 50]]
+      sat:  [[1201, 1300, 10], [1301, 1350, 20], [1351, 1450, 30], [1451, 1600, 50]]
+      ib:   [[31, 33, 10], [34, 36, 20], [37, 39, 30], [40, 45, 50]]
+  - name: "BCA (AI) / B.Sc (AI)"
+    page: 7
+    match: ["bca (artificial intelligence)", "bca ai", "b.sc. (artificial intelligence)", "b.sc ai", "bsc ai"]
+    bands:
+      xii:  [[75, 79.99, 10], [80, 84.99, 20], [85, 89.99, 30], [90, 94.99, 50], [95, 98.99, 75], [99, 100, 100]]
+      sat:  [[1201, 1300, 10], [1301, 1350, 20], [1351, 1450, 30], [1451, 1500, 50], [1501, 1550, 75], [1551, 1600, 100]]
+      ib:   [[31, 33, 10], [34, 36, 20], [37, 39, 30], [40, 40, 50], [41, 41, 75], [42, 45, 100]]
+  - name: "BCA / BCA + MCA (Dual Degree)"
+    page: 8
+    match: ["bca", "bca + mca"]
+    bands:
+      xii:  [[75, 79.99, 10], [80, 84.99, 20], [85, 94.99, 30], [95, 100, 50]]
+      sat:  [[1201, 1300, 10], [1301, 1350, 20], [1351, 1450, 30], [1451, 1600, 50]]
+      ib:   [[31, 33, 10], [34, 36, 20], [37, 39, 30], [40, 45, 50]]
+  - name: "B.Des"
+    page: 7
+    match: ["b.des", "b des", "design"]
+    bands:
+      xii:   [[75, 79.99, 10], [80, 84.99, 20], [85, 89.99, 30], [90, 94.99, 50], [95, 98.99, 75], [99, 100, 100]]
+      ib:    [[31, 33, 10], [34, 36, 20], [37, 39, 30], [40, 40, 50], [41, 41, 75], [42, 45, 100]]
+      sat:   [[1201, 1300, 10], [1301, 1350, 20], [1351, 1400, 30], [1451, 1500, 50], [1501, 1550, 75], [1551, 1600, 100]]
+      nid_rank:    [[751, 900, 10], [501, 750, 20], [301, 500, 30], [201, 300, 50], [101, 200, 75], [1, 100, 100]]
+      nift_rank:   [[3001, 3500, 10], [2001, 3000, 20], [1501, 2000, 30], [1001, 1500, 50], [501, 1000, 75], [1, 500, 100]]
+      uceed_rank:  [[1001, 1200, 10], [751, 1000, 20], [501, 750, 30], [301, 500, 50], [151, 300, 75], [1, 150, 100]]
+      budat:       [[70, 74.99, 10], [75, 79.99, 20], [80, 84.99, 30], [85, 90.99, 50], [91, 94.99, 75], [95, 100, 100]]
+  - name: "BA (Hons.) Liberal Arts / Psychology / Economics / English / Sociology / Philosophy / Business Studies / Pol. Sc."
+    page: 7
+    match: ["liberal arts", "psychology", "economics", "english", "sociology", "philosophy", "business studies", "political science"]
+    bands:
+      xii:  [[75, 79.99, 10], [80, 84.99, 20], [85, 89.99, 30], [90, 94.99, 50], [95, 98.99, 75], [99, 100, 100]]
+      sat:  [[1201, 1300, 10], [1301, 1350, 20], [1351, 1450, 30], [1451, 1500, 50], [1501, 1550, 75], [1551, 1600, 100]]
+      ib:   [[31, 33, 10], [34, 36, 20], [37, 39, 30], [40, 40, 50], [41, 41, 75], [42, 45, 100]]
+  - name: "BA Mass Communication / BA Film, TV & Web Series"
+    page: 7
+    match: ["mass communication", "mass comm", "film", "journalism"]
+    bands:
+      xii:  [[75, 79.99, 10], [80, 84.99, 20], [85, 89.99, 30], [90, 94.99, 50], [95, 98.99, 75], [99, 100, 100]]
+      sat:  [[1201, 1300, 10], [1301, 1350, 20], [1351, 1450, 30], [1451, 1500, 50], [1501, 1550, 75], [1551, 1600, 100]]
+      ib:   [[31, 33, 10], [34, 36, 20], [37, 39, 30], [40, 40, 50], [41, 41, 75], [42, 45, 100]]
+  - name: "B.Com (Finance & Accounting) / B.Com (Intl. Accounting & Finance with ACCA)"
+    page: 8
+    match: ["b.com", "b. com", "bcom", "commerce"]
+    bands:
+      xii:  [[75, 79.99, 10], [80, 84.99, 20], [85, 89.99, 30], [90, 94.99, 50], [95, 98.99, 75], [99, 100, 100]]
+      sat:  [[1201, 1300, 10], [1301, 1350, 20], [1351, 1450, 30], [1451, 1500, 50], [1501, 1550, 75], [1551, 1600, 100]]
+      ib:   [[31, 33, 10], [34, 36, 20], [37, 39, 30], [40, 40, 50], [41, 41, 75], [42, 45, 100]]
+  - name: "BBA / BBA + MBA (Dual Degree)"
+    page: 8
+    match: ["bba", "bba + mba"]
+    bands:
+      xii:  [[75, 79.99, 10], [80, 84.99, 20], [85, 94.99, 30], [95, 100, 50]]
+      sat:  [[1201, 1300, 10], [1301, 1350, 20], [1351, 1450, 30], [1451, 1600, 50]]
+      ib:   [[31, 33, 10], [34, 36, 20], [37, 39, 30], [40, 45, 50]]
+  - name: "BBA LL.B. (Hons.) / BA LL.B. (Hons.)"
+    page: 8
+    match: ["llb", "ll.b", "law"]
+    bands:
+      xii:        [[75, 79.99, 10], [80, 84.99, 20], [85, 94.99, 30], [95, 100, 50]]
+      clat_rank:  [[12001, 20000, 10], [10001, 12000, 20], [5001, 10000, 30], [1, 5000, 50]]
+  - name: "MBA"
+    page: 9
+    match: ["mba"]
+    bands:
+      cat:         [[70, 74.99, 10], [75, 79.99, 20], [80, 84.99, 30], [85, 100, 50]]
+      cmat:        [[75, 80.99, 10], [81, 85.99, 20], [86, 90.99, 30], [91, 100, 50]]
+      gmat:        [[500, 550, 10], [551, 600, 20], [601, 650, 30], [651, 800, 50]]
+      graduation:  [[70, 74.99, 10], [75, 79.99, 20], [80, 84.99, 30], [85, 100, 50]]
+
+exam_names:
+  xii: "Class XII % (Best of 3) / CUET"
+  jee: "JEE Main percentile"
+  sat: "SAT score"
+  ib: "IB score"
+  neet: "NEET percentile"
+  nid_rank: "NID rank"
+  nift_rank: "NIFT rank"
+  uceed_rank: "UCEED rank"
+  budat: "BUDAT score"
+  clat_rank: "CLAT / AILET AIR rank"
+  cat: "CAT / XAT percentile"
+  cmat: "CMAT / MAT / NMAT / BUMAT percentile"
+  gmat: "GMAT score"
+  graduation: "Graduation % / CGPA (Best of 3)"

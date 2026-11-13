@@ -1,0 +1,32 @@
+# Python / Node
+__pycache__/
+*.pyc
+.venv/
+node_modules/
+frontend/dist/
+.pytest_cache/
+.ruff_cache/
+
+# Secrets (see backend/.env.example)
+.env
+.env.*
+!.env.example
+
+# Local data: crawled documents, databases, vector index, logs
+data/raw/
+data/private/
+data/qdrant/
+data/pg/
+*.log
+
+# Official university documents / working notes kept at the repo root
+/*.pdf
+/*.docx
+/NEEDED_FROM_YOU.md
+
+# Older eval runs (the current report and the baseline are kept)
+data/eval/report_run*.md
+!data/eval/report_run2_baseline.md
+
+# Official Bennett brand assets (copied from data/private, not committed)
+frontend/public/brand/
