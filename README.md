@@ -60,7 +60,10 @@ React 19 + Tailwind ──SSE──►  FastAPI  ──►  LangGraph agent
 
 Ingestion: crawl bennett.edu.in → classify → extract text (OCR for scanned PDFs) → chunk by section → version → embed.
 
-Design decisions, alternatives considered and what was rejected: [docs/HOW_IT_WORKS.md](docs/HOW_IT_WORKS.md).
+**Documents:**
+- [docs/DESIGN.md](docs/DESIGN.md): the design document. It covers problem and users, why RAG plus rules, scope, requirements, the architecture diagram, failure modes, the evaluation plan, risks and the tech stack.
+- [docs/HOW_IT_WORKS.md](docs/HOW_IT_WORKS.md): the detailed walkthrough of every component and decision.
+- [docs/DEMO_SCRIPT.md](docs/DEMO_SCRIPT.md): the 15-minute demo plan and Q&A preparation.
 
 ## Run it
 
