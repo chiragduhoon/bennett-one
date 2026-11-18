@@ -130,7 +130,7 @@ def discover(settings) -> list[SourceFile]:
             seen_sha.add(sha)
             cat = C.category_of(name)
             files[r["file"]] = SourceFile(
-                path=f, rel=rel, url=r["url"], title=re.sub(r"[-_]+", " ", name.rsplit(".", 1)[0]).strip(),
+                path=f, rel=rel, url=r["url"], title=C.display_title(name),
                 kind="pdf", category=cat, school_id=C.school_of(name), family=C.family_of(name),
                 academic_year=C.academic_year_of(name), published_on=C.published_from_path(rel), sha256=sha,
                 audience=C.audience_of(cat))

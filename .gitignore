@@ -30,3 +30,6 @@ data/eval/report_run*.md
 
 # Official Bennett brand assets (copied from data/private, not committed)
 frontend/public/brand/
+
+# Slide decks (contain university photos and logos; presented from the laptop)
+*.pptx

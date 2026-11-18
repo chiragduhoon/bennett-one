@@ -2,7 +2,7 @@
 
 *An assistant that answers questions about Bennett University from official documents, shows the source for every fact, and leaves eligibility decisions to tested code instead of the LLM.*
 
-This document follows the course's design-document template (sections 1–8), then lists the tech stack. The full implementation walkthrough is in [HOW_IT_WORKS.md](HOW_IT_WORKS.md).
+This document follows the course's design-document template (sections 1–8), then lists the tech stack. The full implementation walkthrough is in [HOW_IT_WORKS.md](../docs/HOW_IT_WORKS.md).
 
 ---
 
@@ -76,7 +76,8 @@ Some rules have been replaced by newer ones. For example, SCSET's 70% attendance
   - version diff
   - conflict queue
   - audit log
-- 9 schools, 133 programmes, 363 documents.
+- Institutional facts from the University Annual Report 2024-25 (rankings, research, placements, campus).
+- 9 schools, 133 programmes, 364 documents.
 
 **Out of scope:**
 - Other universities, e.g. "IIT fees"
@@ -103,7 +104,7 @@ Some rules have been replaced by newer ones. For example, SCSET's 70% attendance
 | ID | Requirement | How it is tested |
 |---|---|---|
 | F1 | Every factual sentence cites a source (document + page, or structured fee/policy data) | Eval check `cited`, citation verifier |
-| F2 | Eligibility, attendance, scholarship and refund verdicts come from the rule engine, not the LLM | 38 unit tests; eval check `behavior` |
+| F2 | Eligibility, attendance, scholarship and refund verdicts come from the rule engine, not the LLM | 41 unit tests; eval check `behavior` |
 | F3 | Missing inputs → ask for exactly what's missing, never assume | Eval cases adm-01, sch-0x; unit tests |
 | F4 | Superseded documents are never used as the current rule | Unit test (SCSET 70% → 75%) |
 | F5 | Answers use the student's school and programme; documents from other schools are filtered out | Retrieval filter `school_id IN (mine, ALL)` |
@@ -217,7 +218,7 @@ flowchart LR
 |---|---|
 | Understand | Intent and slot accuracy (marks, programme), checked through behaviour cases |
 | Retrieve | Did the expected source document appear in the cited sources? |
-| Validate (rule engine) | **38 unit tests**, including one regression test per bug found; runs in CI on every push |
+| Validate (rule engine) | **41 unit tests**, including one regression test per bug found; runs in CI on every push |
 | Generate + Verify | Per answer: `mention` (key facts present), `myth-free`, `cited`, `behavior` (answer / ask / refuse correctly) |
 | End to end | Pass = all four checks; latency per question |
 
@@ -261,5 +262,5 @@ flowchart LR
 | Databases | **PostgreSQL 18** (structured data + full-text search) + **Qdrant** (vectors) | Exact facts and keyword search in SQL; semantic search in Qdrant; fused with RRF |
 | Document processing | PyMuPDF, **RapidOCR**, wordninja; custom crawler (robots.txt-respecting) | Text and scanned PDFs from bennett.edu.in |
 | Frontend | **React 19 + TypeScript + Vite + Tailwind**, react-markdown | Bennett-branded UI with live agent steps, citations and a source viewer |
-| Testing | pytest (38 unit tests), custom eval harness (31 questions), GitHub Actions CI | Regression safety for every bug fixed |
+| Testing | pytest (41 unit tests), custom eval harness (31 questions), GitHub Actions CI | Regression safety for every bug fixed |
 | Infrastructure | Lab GPU (RTX 2000 Ada, 16 GB) over an SSH tunnel; laptop runs API + DB | Private, ₹0 running cost |

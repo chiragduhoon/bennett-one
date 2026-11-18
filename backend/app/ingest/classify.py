@@ -30,6 +30,10 @@ INCLUDE = re.compile(
     re.I,
 )
 MAX_BYTES = 15 * 1024 * 1024  # skip 20-50 MB scanned curriculum books
+# Index even though EXCLUDE matches: the university-wide Annual Report ("Annual-Report-AY-2024-2025_...",
+# rankings, placements, research, infrastructure). The Examination Department's short reports
+# ("Annual-Report_AY-2024-25") stay excluded.
+FORCE_INCLUDE = re.compile(r"^annual-report-ay-20\d{2}-20\d{2}", re.I)
 
 SCHOOL_HINTS = [
     (re.compile(r"\bSOL\b|school-of-law|law|llb|bci|moot", re.I), "SOL"),
@@ -115,6 +119,7 @@ FAMILIES = [  # explicit, ordered: first match wins
     (r"bci.(approval|consent)|^bci", "bar council of india approval"),
     (r"date.sheet", "examination date sheet"),
     (r"hostel.notice", "hostel notice"),
+    (r"^annual.report.ay.20\d{2}.20\d{2}", "university annual report"),
 ]
 
 
@@ -137,6 +142,14 @@ def family_of(filename: str) -> str:
     return n or filename.lower()
 
 
+def display_title(filename: str) -> str:
+    """Title shown in citations; most files keep their de-slugged name."""
+    stem = filename.rsplit(".", 1)[0]
+    if FORCE_INCLUDE.search(filename):
+        return f"Bennett University Annual Report {academic_year_of(filename)}"
+    return re.sub(r"[-_]+", " ", stem).strip()
+
+
 def audience_of(category: str) -> str:
     return {"admission": "prospective", "fees": "all", "scholarship": "all"}.get(category, "enrolled" if category in
             ("attendance", "exam", "calendar", "academic_rules", "conduct", "hostel", "forms") else "all")
@@ -144,7 +157,11 @@ def audience_of(category: str) -> str:
 
 def should_index_pdf(rel_path: str, size: int) -> bool:
     name = rel_path.rsplit("/", 1)[-1]
-    if size > MAX_BYTES or EXCLUDE.search(name):
+    if size > MAX_BYTES:
+        return False
+    if FORCE_INCLUDE.search(name):
+        return True
+    if EXCLUDE.search(name):
         return False
     return bool(INCLUDE.search(name))
 

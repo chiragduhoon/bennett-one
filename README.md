@@ -26,8 +26,8 @@ Each bug the evaluation found (e.g. "cse" matching M.Tech instead of B.Tech, JEE
 |---|---|
 | Answers citing an official source | 29/31 (the other 2 are correct refusals / redirects) |
 | End-to-end latency (Qwen3-14B Q4 on one RTX 2000 Ada 16 GB) | median **20 s**, p90 30 s; tokens stream from the first seconds |
-| Knowledge base | 363 documents · 380 versions · 7,670 chunks · 133 programmes · 9 schools |
-| Unit tests (rule engine, memory, policy versions) | 38 passing in CI |
+| Knowledge base | 364 documents · 382 versions · 8,508 chunks (incl. the University Annual Report 2024-25) · 133 programmes · 9 schools |
+| Unit tests (rule engine, memory, policy versions, document classification) | 41 passing in CI |
 
 Full per-question report with every answer: [`data/eval/report.md`](data/eval/report.md). Caveat: the same question set guided development, so treat 100% as "no regressions on known questions", not as a held-out score.
 
@@ -60,10 +60,10 @@ React 19 + Tailwind ──SSE──►  FastAPI  ──►  LangGraph agent
 
 Ingestion: crawl bennett.edu.in → classify → extract text (OCR for scanned PDFs) → chunk by section → version → embed.
 
-**Documents:**
-- [docs/DESIGN.md](docs/DESIGN.md): the design document. It covers problem and users, why RAG plus rules, scope, requirements, the architecture diagram, failure modes, the evaluation plan, risks and the tech stack.
-- [docs/HOW_IT_WORKS.md](docs/HOW_IT_WORKS.md): the detailed walkthrough of every component and decision.
-- [docs/DEMO_SCRIPT.md](docs/DEMO_SCRIPT.md): the 15-minute demo plan and Q&A preparation.
+**Course submissions:** one codebase, documented separately for each course.
+- [GenAI/](GenAI): Generative AI course. Use case and functionality, the [design document](GenAI/DESIGN.md) (problem and users, why RAG plus rules, scope, requirements, architecture diagram, failure modes, evaluation plan, risks, tech stack) and the [demo script](GenAI/DEMO_SCRIPT.md).
+- [NLP-Agentic/](NLP-Agentic): NLP & Agentic AI course. The [design document](NLP-Agentic/DESIGN.md) centred on intent and slot extraction, dialogue memory, hybrid retrieval and the LangGraph agent with its tools, plus its own [demo script](NLP-Agentic/DEMO_SCRIPT.md).
+- [docs/HOW_IT_WORKS.md](docs/HOW_IT_WORKS.md): the detailed walkthrough of every component and decision, shared by both.
 
 ## Run it
 
@@ -92,7 +92,7 @@ uv run python -m app.ingest.pipeline --reset         # chunk + embed + index (st
 
 ```powershell
 cd backend
-uv run pytest -q                  # rule engine + memory + policy versions (no GPU or DB needed)
+uv run pytest -q                  # rule engine + memory + policy versions + classifier (no GPU or DB needed)
 uv run python -m app.eval.run     # 31-question evaluation against the running API
 ```
 
@@ -104,6 +104,7 @@ uv run python -m app.eval.run     # 31-question evaluation against the running A
 | `backend/app/rules/engine.py` | eligibility (Best-of-3, IB, graduation), attendance, scholarships, superseded rules |
 | `backend/app/retrieval/hybrid.py` | vector + keyword search, RRF fusion, school/version filters |
 | `backend/app/ingest/` | classify → extract/OCR → chunk → version → embed |
+| `GenAI/`, `NLP-Agentic/` | course submission documents (design doc, demo script) |
 | `backend/app/eval/run.py` + `data/eval/gold.yaml` | evaluation harness and question set |
 | `frontend/src/` | React app: chat with live agent steps, eligibility checker, dashboard, admin console |
 | `scraper/` | crawler, PDF fetcher, structured-data parser |

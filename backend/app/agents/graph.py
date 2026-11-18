@@ -461,6 +461,10 @@ def generate(state: AgentState) -> AgentState:
                  "reuse these exact numbers, explain what they mean and what the student should do next. Mention next steps "
                  "(interview, test, documents) ONLY if the SOURCES or DATA state them for this programme; never say "
                  "'you are eligible' — say they meet the checked criteria and final admission rests with the University.")
+        if rr.get("status") in (R.MEETS, R.NEEDS_VERIFICATION):
+            task += ("\nThis verdict is final for the checked criteria. Never contradict it: do NOT say any single subject mark "
+                     "is 'below the threshold' (the minimum applies to the Best-of-3 average, not to each subject), do NOT "
+                     "suggest the rule engine may be wrong, and do NOT say the student may not meet the criteria.")
     msgs = [{"role": "system", "content": SYSTEM},
             *[{"role": m["role"], "content": m["content"]} for m in (state.get("history") or [])[-4:]],
             {"role": "user", "content": "\n\n".join(ctx) + f"\n\nQUESTION: {state['question']}\n\n{task}"}]
@@ -587,7 +591,9 @@ _NUM = re.compile(r"(?<![\w.])(\d{1,3}(?:,\d{2,3})+|\d+(?:\.\d+)?)(?![\w])")
 
 def ungrounded_numbers(answer: str, state: AgentState) -> list[str]:
     """Numbers (≥2 digits or with decimals) that appear in the answer but nowhere in the evidence."""
-    evidence = " ".join([state["question"], json.dumps(state.get("rule_result") or {}), json.dumps(state.get("facts") or {}),
+    # the user's own details from earlier turns (merged chat memory) count as evidence too
+    evidence = " ".join([state["question"], json.dumps(state.get("understanding") or {}),
+                         json.dumps(state.get("rule_result") or {}), json.dumps(state.get("facts") or {}),
                          json.dumps({k: (state.get("profile") or {}).get(k) for k in ("semester", "year", "academic_year", "attendance")}),
                          *[h.text + " " + (h.academic_year or "") for h in (state.get("hits") or [])]])
     ev_nums = {n.replace(",", "") for n in _NUM.findall(evidence)}

@@ -6,7 +6,7 @@ About **9 minutes of presenting**, leaving about 6 minutes for questions.
 - [ ] Run `.\scripts\start.ps1` and confirm http://localhost:5173 loads and `http://localhost:8000/api/health` returns `{"ok":true}`.
 - [ ] Ask one warm-up question, e.g. "what is the minimum attendance". The first answer loads the model onto the GPU, so later ones are faster.
 - [ ] Check the GPU isn't full: `ssh chirag nvidia-smi`.
-- [ ] Open these tabs: the app (logged out), the GitHub repo, `docs/DESIGN.md` (shows the architecture diagram).
+- [ ] Open these tabs: the app (logged out), the GitHub repo, `GenAI/DESIGN.md` (shows the architecture diagram).
 - [ ] Backup: `docs/media/demo.gif` and the screenshots, in case the lab GPU is busy.
 - [ ] Logins: `student@bennett.demo` / `bennett123` and `admin@bennett.demo` / `bennett123`.
 
@@ -19,7 +19,7 @@ About **9 minutes of presenting**, leaving about 6 minutes for questions.
 > "BENNETT ONE answers from official documents only, cites the page, and **never lets the LLM decide** eligibility. Python code decides, and the LLM explains."
 
 ## 3. Architecture (1.5 min). Show the diagram in DESIGN.md §5
-- Crawled bennett.edu.in, giving 363 documents and 7,670 chunks. OCR was used for scanned notices, and documents are versioned.
+- Crawled bennett.edu.in, giving 364 documents and 8,508 chunks (including the 179-page Annual Report 2024-25). OCR was used for scanned notices, and documents are versioned.
 - **Hybrid search:** meaning (Qdrant + bge-m3) and exact words (Postgres full-text), fused together.
 - **LangGraph agent, 5 steps:** understand → retrieve → **rule engine** → generate → **verify**.
 - **Self-hosted Qwen3-14B** on the lab GPU, so student data never leaves campus and it costs ₹0.
@@ -34,6 +34,7 @@ About **9 minutes of presenting**, leaving about 6 minutes for questions.
 | 4 | Log in as **student**. Ask *Am I eligible to sit the end-sem in all my courses?* | Personalised from ERP attendance. Point out the **75% rule** and that the older SCSET 70% rule is superseded. Click a citation to open the source |
 | 5 | *I have JEE 93 percentile, how much scholarship?* | Doesn't assume the course; asks and shows the options per programme |
 | 6 | *can I keep a kettle in the hostel?* | Applies hostel rule 9 (electrical appliances) and cites it |
+| 6b | *what does the annual report 2024-25 say about research publications and patents?* | Newest document in the knowledge base (179 pages). Cites the Annual Report at the exact page (p. 148): 222+ IP published, Scopus h-index 74+ |
 | 7 | *what are IIT Delhi fees?* | Out of scope, so a polite redirect |
 | 8 | *someone is ragging me* | Safety fast path: verified anti-ragging contacts instantly |
 | 9 | Log in as **admin** | Version history, the 70% vs 75% conflict, audit log |
@@ -41,7 +42,7 @@ About **9 minutes of presenting**, leaving about 6 minutes for questions.
 While answers stream, point out the **live steps** (Understanding → Searching → Checking rules → Verifying) and the **Sources used** chips.
 
 ## 5. Evaluation and honesty (1 min)
-- 31 real student questions with 4 automatic checks each: **72% → 100%**. 38 unit tests run in CI.
+- 31 real student questions with 4 automatic checks each: **72% → 100%**. 41 unit tests run in CI.
 - Every bug testing found got its own test, e.g. the LLM wrote 88% when the code computed 83.67%.
 - **Be upfront:** "These questions guided development, so 100% isn't a held-out score. Our next step is a fresh question set from other students."
 
